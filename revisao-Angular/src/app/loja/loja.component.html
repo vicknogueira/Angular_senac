@@ -1,0 +1,46 @@
+<main class="container">
+    <h1 class="text-center">Cadastre um produto</h1>
+        
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control"  placeholder="Digite aqui o nome..." name="" [(ngModel)]="produto.nome">
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço:</label>
+            <input type="text" class="form-control"  placeholder="Digite aqui o preço..." name="" [(ngModel)]="produto.preco">
+        </div>
+        <div class="form-group">
+            <label for="imagem">Imagem:</label>
+            <input type="text" class="form-control" placeholder="Digite a URL da imagem..." name="" [(ngModel)]="produto.imagem">
+        </div>
+        <div class="form-group">
+            <label for="qtdEstoque">Quantidade em estoque:</label>
+            <input type="text" class="form-control"  placeholder="Digite a quantidade em estoque..." name="" [(ngModel)]="produto.qtdEstoque">
+        </div>
+        <div class="d-flex justify-content-end">
+            <button (click)="publicar()" type="button" class="btn btn-lg btn-info">Cadastrar</button>
+        </div>
+    <h2 class="mt-5 mb-5 text-center">Bem vindo a nossa loja</h2>
+<!-- Alert -->
+    <div *ngIf='alerta'>
+        <div class="alert alert-success" role="">Produto deletado com sucesso !</div>
+    </div>
+
+    <section class="container-fluid mb-5 p-0">
+        <div class="row d-flex justify-content-around" >
+            <div class="card col-md-4 m-4"*ngFor="let produto of listaProdutos"  style="width: 18rem;">
+                <img src="{{ produto.imagem }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{ produto.nome }}</h5>
+                  <p class="card-text text-center">Código: {{ produto.id }}</p>
+                  <p class="card-text text-center">Preço: R{{ produto.preco | currency }}</p>
+                  <p class="card-text text-center">Quantidade em estoque: {{ produto.qtdEstoque }}</p>
+                  <div class="d-flex justify-content-around">
+                    <button class="btn btn-outline-info mr-2" [routerLink]="['/put-produto', produto.id]">Editar</button>
+                    <button class="btn btn-outline-danger"  [routerLink]="['/deletar-produto', produto.id]">Deletar</button>
+                  </div>
+                </div>
+              </div>        
+        </div>
+    </section>
+</main>

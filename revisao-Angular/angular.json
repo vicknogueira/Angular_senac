@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "revisao-Angular"
+    }
+  },
+  "defaultProject": "revisao-Angular",
+  "cli": {
+    "analytics": false
+  }
 }

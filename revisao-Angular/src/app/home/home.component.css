@@ -1,0 +1,9 @@
+.img-fruta{
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    filter: brightness(0.3);
+}
+.titulo{
+    z-index: 1;
+}
